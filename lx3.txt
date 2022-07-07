@@ -1,0 +1,10 @@
+CC = gcc
+OPTIONS = -O3 -o
+OBJECTS = main.o stack.o misc.o
+SOURCES = main.c stack.c misc.c
+HEADERS = main.h stack.h misc.h
+polish: main.c $(OPJECTS)
+	$(CC) $(OPTIONS) power $(OBJECTS) -lm
+main.o: main.c main.h misc.h
+stack.o: stack.c stack.h misc.h
+misc.o: misc.c misc.h

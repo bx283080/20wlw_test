@@ -1,0 +1,46 @@
+[root@localhost root]# cat compute.h
+/* compute函数的声明原形 */
+double compute(double, double);
+[root@localhost root]# cat input.h
+/* input函数的声明原形 */
+double input(char *);
+[root@localhost root]# cat main.h
+/* 声明用户提示 */
+#define PROMPT1 "请输入x的值："
+#define PROMPT2 "请输入y的值："
+[root@localhost root]# cat compute.c
+#include <math.h>
+#include <stdio.h>
+#include "compute.h"
+double compute(double x, double y)
+{
+	return (pow ((double)x, (double)y));
+}
+
+[root@localhost root]# cat input.c
+#include <stdio.h>
+#include"input.h"
+double input(char *s)
+{
+	float x;
+	printf("%s", s);
+	scanf("%f", &x);
+	return (x);
+}
+
+
+[root@localhost root]# cat main.c
+#include <stdio.h>
+#include "main.h"
+#include "compute.h"
+#include "input.h"
+
+int main()
+{
+	double x, y;
+	printf("本程序从标准输入获取x和y的值并显示x的y次方.\n");
+	x = input(PROMPT1);
+	y = input(PROMPT2);
+	printf("x的y次方是:%6.3f\n",compute(x,y));
+  return 0;
+}

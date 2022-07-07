@@ -1,0 +1,17 @@
+#include<stdio.h>
+#define PROMPT "请输入一个整数："
+void get_input(char *, int *);
+
+int main()
+{
+ int     *user_input;
+ get_input(PROMPT, user_input);
+(void) printf("您输入了：%d。\n", user_input);
+ return 0;
+}
+
+void get_input(char *prompt, int *ival)
+{
+    (void) printf("%s", prompt);
+    scanf("%d", ival);
+}
